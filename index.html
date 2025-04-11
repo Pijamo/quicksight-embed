@@ -2,29 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>QuickSight Embed Test</title>
+  <title>QuickSight Fullscreen Embed</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      background: #f9f9f9;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
     }
     iframe {
+      width: 100%;
+      height: 100%;
       border: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    } 
   </style>
 </head>
 <body>
-  <h1>QuickSight Dashboard Embed</h1>
   <iframe
-    width="960"
-    height="720"
     src="https://ap-south-1.quicksight.aws.amazon.com/sn/embed/share/accounts/003644249771/dashboards/60b5f8cf-d128-440b-9959-c484636087e8?directory_alias=repro-da"
     allowfullscreen
   ></iframe>
