@@ -2,25 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>QuickSight Fullscreen Embed</title>
+  <title>QuickSight Dynamic Partner Embed</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
+      font-family: sans-serif;
     }
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-    } 
+    }
   </style>
 </head>
 <body>
-  <iframe
-  src="https://ap-south-1.quicksight.aws.amazon.com/sn/embed/share/accounts/003644249771/dashboards/228cadd3-bf2d-4677-b2b0-3d324d9ac464?directory_alias=repro-da">
-    allowfullscreen
-  ></iframe>
+  <script>
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    const partner = getQueryParam("partner");
+    const baseEmbedUrl = "https://ap-south-1.quicksight.aws.amazon.com/sn/embed/share/accounts/003644249771/dashboards/228cadd3-bf2d-4677-b2b0-3d324d9ac464?directory_alias=repro-da";
+
+    const fullEmbedUrl = partner
+      ? `${baseEmbedUrl}#p.partner=${encodeURIComponent(partner)}`
+      : baseEmbedUrl;
+
+    document.write(`<iframe src="${fullEmbedUrl}" allowfullscreen></iframe>`);
+  </script>
 </body>
 </html>
